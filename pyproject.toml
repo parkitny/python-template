@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project_name"
+version = "0.0.1"
+description = "Project description"
+requires-python = ">=3.10"
+
+[project.scripts]
+
+[project.optional-dependencies]
+test = ['pytest', 'pytest-cov', 'pytest-asyncio']
+
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+optional-dependencies = { dev = { file = ["requirements-dev.txt"] } }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["src"]
+exclude = ["tests", "tests.*"]
+namespaces = false
