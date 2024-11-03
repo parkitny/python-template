@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=62.6"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,12 +7,7 @@ name = "project_name"
 version = "0.0.1"
 description = "Project description"
 requires-python = ">=3.10"
-
-[project.scripts]
-
-[project.optional-dependencies]
-test = ['pytest', 'pytest-cov', 'pytest-asyncio']
-
+dynamic = ["dependencies", "optional-dependencies"]
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
